@@ -1,0 +1,420 @@
+/* =========================================================
+   ЛОКОН — парикмахерская студия
+   Токены дизайна
+   ========================================================= */
+:root{
+  --bg: #1E1512;
+  --bg-soft: #271A16;
+  --card: #2E211C;
+  --ivory: #F5ECE3;
+  --ivory-dim: #C9BBAF;
+  --gold: #C6A15B;
+  --gold-soft: #E4C989;
+  --mauve: #B98897;
+  --line: rgba(245,236,227,0.14);
+
+  --font-display: "Fraunces", serif;
+  --font-body: "Manrope", sans-serif;
+
+  --container: 1100px;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img{ max-width: 100%; display: block; }
+
+a{ color: inherit; text-decoration: none; }
+
+h1, h2, h3{
+  font-family: var(--font-display);
+  font-weight: 500;
+  margin: 0 0 .5em 0;
+  color: var(--ivory);
+}
+
+::selection{ background: var(--gold); color: var(--bg); }
+
+:focus-visible{
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 3px;
+}
+
+.eyebrow{
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--mauve);
+  margin: 0 0 .9em 0;
+}
+
+.accent{ color: var(--gold-soft); }
+
+/* =========================================================
+   Кнопки
+   ========================================================= */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .9em 1.7em;
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: .95rem;
+  letter-spacing: .01em;
+  border: 1px solid transparent;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
+  cursor: pointer;
+}
+.btn--gold{
+  background: var(--gold);
+  color: #1E1512;
+}
+.btn--gold:hover{ background: var(--gold-soft); transform: translateY(-2px); }
+
+.btn--ghost{
+  border-color: var(--line);
+  color: var(--ivory);
+}
+.btn--ghost:hover{ border-color: var(--gold); color: var(--gold-soft); transform: translateY(-2px); }
+
+.btn--small{ padding: .6em 1.2em; font-size: .85rem; }
+
+/* =========================================================
+   Навигация
+   ========================================================= */
+.nav{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(30, 21, 18, 0.82);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.nav__inner{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.nav__logo{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--gold-soft);
+}
+.nav__links{
+  display: flex;
+  gap: 1.8rem;
+  font-size: .92rem;
+}
+.nav__links a{ color: var(--ivory-dim); transition: color .2s ease; }
+.nav__links a:hover{ color: var(--gold-soft); }
+
+@media (max-width: 760px){
+  .nav__links{ display: none; }
+}
+
+/* =========================================================
+   Герой
+   ========================================================= */
+.hero{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 6.5rem 1.5rem 4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero__title{
+  font-size: clamp(3.6rem, 12vw, 7rem);
+  line-height: .95;
+  margin-bottom: .2em;
+}
+.hero__tagline{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ivory-dim);
+  font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  margin: 0 0 1.4em 0;
+}
+.hero__text{
+  max-width: 46ch;
+  color: var(--ivory-dim);
+  margin: 0 0 2em 0;
+}
+.hero__actions{
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* =========================================================
+   Линия среза — фирменный разделитель
+   ========================================================= */
+.cutline{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 40px;
+}
+.cutline--small{ height: 28px; opacity: .7; }
+.cutline svg{ width: 100%; height: 100%; overflow: visible; }
+.cutline__path{
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+@media (prefers-reduced-motion: no-preference){
+  .cutline__path{
+    transition: stroke-dashoffset 1.4s cubic-bezier(.4,0,.2,1);
+  }
+}
+
+/* =========================================================
+   Квадратные фото-рамки (плейсхолдеры для будущих фото)
+   ========================================================= */
+.photo-frame{
+  position: relative;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 3px;
+  border: 1px solid var(--line);
+  margin: 0;
+  background: var(--card);
+}
+.photo-frame img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+.photo-placeholder{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  color: var(--ivory-dim);
+  background:
+    repeating-linear-gradient(135deg, transparent, transparent 10px, rgba(245,236,227,0.03) 10px, rgba(245,236,227,0.03) 20px);
+}
+.photo-placeholder .ph-icon{
+  width: 34px;
+  height: 34px;
+  opacity: .5;
+}
+.photo-placeholder span{
+  font-size: .78rem;
+  letter-spacing: .04em;
+  opacity: .6;
+}
+
+/* =========================================================
+   О мастере
+   ========================================================= */
+.about{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem;
+  display: grid;
+  grid-template-columns: minmax(220px, 340px) 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.about__text p{ color: var(--ivory-dim); }
+.about__text h2{ font-size: clamp(1.6rem, 3vw, 2.1rem); }
+
+@media (max-width: 720px){
+  .about{ grid-template-columns: 1fr; }
+  .about__photo{ max-width: 320px; margin: 0 auto; }
+}
+
+/* =========================================================
+   Услуги / прайс
+   ========================================================= */
+.services{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem;
+}
+.services h2{ font-size: clamp(1.8rem, 3.4vw, 2.4rem); }
+.section-note{
+  color: var(--ivory-dim);
+  max-width: 60ch;
+  margin: 0 0 2.4rem 0;
+}
+.price-group{ margin-bottom: 2.2rem; }
+.price-group__title{
+  font-size: 1.05rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--mauve);
+  margin-bottom: 1rem;
+}
+.price-row{
+  display: flex;
+  align-items: baseline;
+  gap: .6rem;
+  padding: .7rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.price-row .name{
+  white-space: nowrap;
+  font-size: 1.02rem;
+}
+.price-row .dots{
+  flex: 1;
+  border-bottom: 2px dotted rgba(245,236,227,0.25);
+  transform: translateY(-6px);
+}
+.price-row .price{
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--gold-soft);
+}
+.section-footnote{
+  color: var(--ivory-dim);
+  font-size: .85rem;
+  opacity: .75;
+  margin-top: 1.5rem;
+}
+
+/* =========================================================
+   Галерея
+   ========================================================= */
+.gallery{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4.5rem;
+}
+.gallery h2{ font-size: clamp(1.8rem, 3.4vw, 2.4rem); }
+.gallery__grid{
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem;
+}
+.gallery__item{
+  transition: transform .35s ease;
+}
+@media (prefers-reduced-motion: no-preference){
+  .gallery__item:hover{ transform: translateY(-4px); }
+  .gallery__item:hover img{ transform: scale(1.05); }
+  .gallery__item img{ transition: transform .5s ease; }
+}
+
+/* =========================================================
+   Контакты
+   ========================================================= */
+.contacts{
+  background: var(--bg-soft);
+  border-top: 1px solid var(--line);
+  padding: 4.5rem 1.5rem 3rem;
+  text-align: center;
+}
+.contacts__inner{
+  max-width: 640px;
+  margin: 0 auto;
+}
+.contacts h2{ font-size: clamp(1.8rem, 3.4vw, 2.4rem); }
+.contacts__address{
+  color: var(--ivory-dim);
+  font-size: 1.05rem;
+  margin: 0 0 2.2rem 0;
+}
+.contacts__buttons{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+.contact-btn{
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .9em 1.4em;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--card);
+  transition: border-color .25s ease, transform .25s ease, background .25s ease;
+}
+.contact-btn:hover{
+  border-color: var(--gold);
+  background: rgba(198,161,91,0.08);
+  transform: translateY(-2px);
+}
+.contact-btn__icon{
+  width: 20px;
+  height: 20px;
+  color: var(--gold-soft);
+  flex-shrink: 0;
+}
+.contact-btn__icon svg{ width: 100%; height: 100%; }
+.contact-btn__label{ font-weight: 600; font-size: .92rem; }
+
+.contacts__foot{
+  color: var(--ivory-dim);
+  opacity: .6;
+  font-size: .82rem;
+}
+
+/* =========================================================
+   Плавающая мобильная панель связи
+   ========================================================= */
+.mobile-bar{
+  display: none;
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  background: rgba(46, 33, 28, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: .6rem 1rem;
+  gap: 1.4rem;
+}
+.mobile-bar a{
+  width: 26px;
+  height: 26px;
+  color: var(--gold-soft);
+}
+.mobile-bar a svg{ width: 100%; height: 100%; }
+
+@media (max-width: 760px){
+  .mobile-bar{ display: flex; align-items: center; }
+  .contacts{ padding-bottom: 6rem; }
+}
