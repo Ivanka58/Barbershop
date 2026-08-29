@@ -1,5 +1,5 @@
 /* =========================================================
-   ЛОКОН — парикмахерская студия
+   M-BEAUTY - парикмахерская студия
    Токены дизайна
    ========================================================= */
 :root{
@@ -169,7 +169,7 @@ h1, h2, h3{
 }
 
 /* =========================================================
-   Линия среза — фирменный разделитель
+   Линия среза - фирменный разделитель
    ========================================================= */
 .cutline{
   max-width: var(--container);
@@ -280,6 +280,20 @@ h1, h2, h3{
   letter-spacing: .08em;
   color: var(--mauve);
   margin-bottom: 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+.price-group__from{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: .95rem;
+  color: var(--gold-soft);
+  opacity: .85;
 }
 .price-row{
   display: flex;
